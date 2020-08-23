@@ -1,0 +1,164 @@
+Warning: Function C:\Users\hayya\Documents\MATLAB\fft.m has the
+same name as a MATLAB builtin. We suggest you rename the function
+to avoid a potential name conflict.
+Warning: Function C:\Users\hayya\Documents\MATLAB\fft.m has the same name as a 
+MATLAB builtin. We suggest you rename the function to avoid a potential name 
+conflict. 
+Compiler version: 4.7 (R2007b) 
+Warning: Duplicate directory name: C:\Users\hayya\Documents\MATLAB. 
+mcc -W 'cpplib:Untitled1' -d 'C:\Users\hayya\Documents\MATLAB\Untitled1\src' -T 'link:lib' -v 'C:\Users\hayya\Documents\MATLAB\espace_traitement.m'  
+Processing C:\Program Files\MATLAB\R2007b\toolbox\images\mcc.enc 
+Processing C:\Program Files\MATLAB\R2007b\toolbox\matlab\mcc.enc 
+Processing C:\Users\hayya\Documents\MATLAB\espace_traitement.fig 
+Processing C:\Program Files\MATLAB\R2007b\toolbox\shared\imageslib\mcc.enc 
+Processing C:\Program Files\MATLAB\R2007b\toolbox\matlab\guide\guideopts.fig 
+Processing C:\Program Files\MATLAB\R2007b\toolbox\matlab\winfun\actxcontrolselect.fig 
+Processing C:\Program Files\MATLAB\R2007b\toolbox\matlab\winfun\actxcontrolcreateproperty.fig 
+Processing include files... 
+2 item(s) added. 
+Processing directories installed with MCR... 
+The file C:\Users\hayya\Documents\MATLAB\Untitled1\src\mccExcludedFiles.log contains a list of functions excluded from the CTF archive. 
+1 item(s) added. 
+Generating MATLAB path for the compiled application... 
+Created 40 path items. 
+Begin validation of MEX files: Thu Apr 04 20:15:21 2013 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\deploywhich.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\readline.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\bwpackc.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\bwunpackc.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\cq.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\ditherc.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\ditherc.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\ditherc.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto16.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto16.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto16.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto8.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto8.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\grayto8.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\imfilter_mex.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\imhistc.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\imhistc.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\imhistc.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\imlincombc.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\immultmex.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\int16touint16.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\intlutc.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\morphmex.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\ordf.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\images\private\uint16toint16.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\iptcheckinput.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\iptcheckinput.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\iptcheckinput.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\private\iptregistry.mexw32'. 
+Found M-file 'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\private\iptregistry.m'. 
+MEX file 
+    'C:\Program Files\MATLAB\R2007b\toolbox\images\iptutils\private\iptregistry.mexw32' 
+ is valid. It contains 'mexFunction.' 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\medformats\private\bitparse.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\medformats\private\dicom_decode_rle_segment.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\medformats\private\dicomlookup_helper.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\medformats\private\dicomparse.mexw32'. 
+No conflicting M-file found. 
+Validating 'C:\Program Files\MATLAB\R2007b\toolbox\images\medformats\private\tobits.mexw32'. 
+No conflicting M-file found. 
+End validation of MEX files: Thu Apr 04 20:15:21 2013 
+Deleting 24 temporary MEX authorization files. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_6507_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_14796_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_23291_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_27819_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_9045_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_6612_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_3537_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_30366_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_19545_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_16244_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_23343_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_29449_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_19406_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_31795_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_10193_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_26561_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_13314_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_28093_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_23812_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_4600_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_8759_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_32217_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_14530_32816.auth'. 
+Removing: 'C:\Users\hayya\AppData\Local\Temp\mathworks_tmp_1478_32816.auth'. 
+Parsing file "C:\Users\hayya\Documents\MATLAB\espace_traitement.m" 
+	(Referenced from: "Compiler Command Line"). 
+Parsing file "C:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\deployprint.m" 
+	(Referenced from: "Compiler Command Line"). 
+Parsing file "C:\Program Files\MATLAB\R2007b\toolbox\compiler\deploy\printdlg.m" 
+	(Referenced from: "Compiler Command Line"). 
+Generating file "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.h". 
+Generating file "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.cpp". 
+Generating file "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.exports". 
+Generating file "C:\Users\hayya\Documents\MATLAB\Untitled1\src\readme.txt". 
+Generating file "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1_mcc_component_data.c". 
+Executing command: mbuild -O -v -output "Untitled1" -I"C:\Users\hayya\Documents\MATLAB\Untitled1\src" "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.cpp" "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.exports" "C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1_mcc_component_data.c" -link shared -outdir "C:\Users\hayya\Documents\MATLAB\Untitled1\src" 
+ This is mbuild Copyright 1984-2006 The MathWorks, Inc. 
+ 
+-> Default options filename found in C:\Users\hayya\AppData\Roaming\MathWorks\MATLAB\R2007b 
+---------------------------------------------------------------- 
+->    Options file           = C:\Users\hayya\AppData\Roaming\MathWorks\MATLAB\R2007b\compopts.bat 
+->    COMPILER               = cl 
+->    Compiler flags: 
+         COMPFLAGS           = -c -Zp8 -GR -EHsc- -Zc:wchar_t- -W3 -nologo -I"C:\PROGRA~1\MATLAB\R2007b\extern\include\win32" -DMSVC -DIBMPC /D_CRT_SECURE_NO_DEPRECATE 
+         OPTIMFLAGS          = -O2 -DNDEBUG 
+         DEBUGFLAGS          = -Zi -Fd"C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.pdb" 
+         arguments           =  -IC:\Users\hayya\Documents\MATLAB\Untitled1\src 
+         Name switch         = /Fo 
+->    Pre-linking commands   =  
+->    LINKER                 = link 
+->    Link directives: 
+         LINKFLAGS           =  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib oleaut32.lib ole32.lib uuid.lib odbc32.lib odbccp32.lib /LIBPATH:"C:\PROGRA~1\MATLAB\R2007b\extern\lib\win32\microsoft" /nologo mclmcrrt.lib /dll /implib:"C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.lib" /def:C:\Users\hayya\AppData\Local\Temp\mbuild_5F0622E7-6F07-4EEF-8389-F7467D0C3308\templib.def 
+         LINKFLAGSPOST       =  
+         Name directive      = "/out:C:\Users\hayya\Documents\MATLAB\Untitled1\src\Untitled1.dll" 
+         File link directive =  
+         Lib. link directive =  
+         Rsp file indicator  = @ 
+->    Resource Compiler      = rc /fo "C:\Users\hayya\Documents\MATLAB\Untitled1\src\.res" 
+->    Resource Linker        =  
+---------------------------------------------------------------- 
+ 
+  Could not find the compiler "cl" on the DOS path. 
+  Use mbuild -setup to configure your environment properly. 
+ 
+ 
+  C:\PROGRA~1\MATLAB\R2007B\BIN\MEX.PL: Error: Unable to locate compiler. 
+ 
+Error: An error occurred while shelling out to mbuild (error code = 2). 
+Unable to build executable. 
+??? Error using ==> mcc
+Error executing mcc, return status = 1.
+

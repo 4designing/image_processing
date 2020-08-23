@@ -1,0 +1,539 @@
+function varargout = espace_traitement(varargin)
+%ESPACE_TRAITEMENT M-file for espace_traitement.fig
+%      ESPACE_TRAITEMENT, by itself, creates a new ESPACE_TRAITEMENT or raises the existing
+%      singleton*.
+%
+%      H = ESPACE_TRAITEMENT returns the handle to a new ESPACE_TRAITEMENT or the handle to
+%      the existing singleton*.
+%
+%      ESPACE_TRAITEMENT('Property','Value',...) creates a new ESPACE_TRAITEMENT using the
+%      given property value pairs. Unrecognized properties are passed via
+%      varargin to espace_traitement_OpeningFcn.  This calling syntax produces a
+%      warning when there is an existing singleton*.
+%
+%      ESPACE_TRAITEMENT('CALLBACK') and ESPACE_TRAITEMENT('CALLBACK',hObject,...) call the
+%      local function named CALLBACK in ESPACE_TRAITEMENT.M with the given input
+%      arguments.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help espace_traitement
+
+% Last Modified by GUIDE v2.5 27-Mar-2013 20:33:41
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @espace_traitement_OpeningFcn, ...
+                   'gui_OutputFcn',  @espace_traitement_OutputFcn, ...
+                   'gui_LayoutFcn',  [], ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+   gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before espace_traitement is made visible.
+function espace_traitement_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   unrecognized PropertyName/PropertyValue pairs from the
+%            command line (see VARARGIN)
+
+% Choose default command line output for espace_traitement
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes espace_traitement wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = espace_traitement_OutputFcn(hObject, eventdata, handles)
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in Moyenneur.
+function Moyenneur_Callback(hObject, eventdata, handles)
+% hObject    handle to Moyenneur (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+J=handles.ima_original;
+moyenne=J;
+h=(1/9)*[1 1 1;1 1 1;1 1 1];
+[x,y]=size(J);
+for i=2:x-1
+    for j=2:y-1
+        res=h(1,1)*J(i-1,j-1)+h(1,2)*J(i-1,j)+h(1,3)*J(i-1,j+1)+h(2,1)*J(i,j-1)+h(2,2)*J(i,j)+h(2,3)*J(i,j+1)+h(3,1)*J(i+1,j-1)...
+           +h(3,2)*J(i+1,j)+h(3,3)*J(i+1,j+1);
+        moyenne(i,j)=res;
+    end
+end
+axes(handles.Traitee)
+imshow(moyenne);
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% --- Executes on button press in Median.
+function Median_Callback(hObject, eventdata, handles)
+% hObject    handle to Median (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+I = handles.ima_original;
+
+ [X,map] = rgb2ind(I,0); % couleur par defaut
+ 
+Y=medfilt2(X,[3 3]);
+ axes(handles.Traitee)
+ imshow(Y,map);
+
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Executes on button press in erosion.
+function erosion_Callback(hObject, eventdata, handles)
+% hObject    handle to erosion (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+Im=handles.ima_original;
+ [x y]=size(Im);
+bin=Im;
+for i=2:x-1
+    for j=2:y-1
+        k(1)=Im(i-1,j);
+        k(2)=Im(i,j-1);
+        k(3)=Im(i,j);
+        k(4)=Im(i,j+1);
+        k(5)=Im(i+1,j);
+       
+        
+    
+bin(i,j)=min(k);
+    end
+end
+axes(handles.Traitee)
+imshow(bin);
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Executes on button press in dilatation.
+function dilatation_Callback(hObject, eventdata, handles)
+% hObject    handle to dilatation (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+Im=handles.ima_original;
+%h=[0 1 0 ;1 1 1 ;0 1 0];
+ [x y]=size(Im);
+bin=Im;
+for i=2:x-1
+    for j=2:y-1
+        k(1)=Im(i-1,j);%+h(1,2);
+        k(2)=Im(i,j-1);%+h(2,1);
+        k(3)=Im(i,j);%+h(2,2);
+        k(4)=Im(i,j+1);%+h(2,3);
+        k(5)=Im(i+1,j);%+h(3,1);
+       
+        
+    
+bin(i,j)=max(k);
+    end
+end
+axes(handles.Traitee)
+imshow(bin);
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Executes on button press in ouverture.
+function ouverture_Callback(hObject, eventdata, handles)
+% hObject    handle to ouverture (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+b=[0 1 0 ; 1 1 1  ;0 1 0  ]; 
+Im=handles.ima_original;
+c=imerode(Im,b);
+bin=imdilate(c,b);
+axes(handles.Traitee)
+imshow(bin);
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Executes on button press in Fermeture.
+function Fermeture_Callback(hObject, eventdata, handles)
+% hObject    handle to Fermeture (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+b=[0 0 1 0 0 ;0 1 1 1 0 ;1 1 1 1 1; 0 0 1 0 0 ]; 
+Im=handles.ima_original;
+c=imdilate(Im,b);
+bin=imerode(c,b);
+axes(handles.Traitee)
+imshow(bin);
+%Grrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% --- Executes on button press in Binarisation.
+function Binarisation_Callback(hObject, eventdata, handles)
+% hObject    handle to Binarisation (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+a=str2double(get(handles.text_val_seuil,'string'));
+%S=int(a);
+if isempty (a) || isnan(a)
+	fig = openfig('erreur_msg.fig','new');         
+         handles = guihandles(fig);
+         guidata(fig, handles);
+	return
+else
+    Im=handles.ima_original;
+    Im=rgb2gray(Im);
+   b=get(handles.text_val_seuil,'string');
+   b=str2double(b);
+
+    seuil=b;
+   m=size(Im,1);
+   n=size(Im,2);
+  
+    for i=1:m
+        for j=1:n
+            if Im(i,j)<seuil
+                binaire(i,j)=0;
+            else
+                binaire(i,j)=1;
+            end
+        end
+    end
+    
+    axes(handles.Traitee)
+    imshow(binaire);
+
+end
+
+
+
+
+% --- Executes on button press in inversion.
+function inversion_Callback(hObject, eventdata, handles)
+% hObject    handle to inversion (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+S=handles.ima_original;
+ [x y]=size(S); 
+bin=S;
+for i=1:x
+ for j=1:y
+ 
+ bin(i,j)=255-S(i,j);
+ 
+ end
+end
+axes(handles.Traitee)
+imshow(bin);
+
+
+% --- Executes on button press in brillance.
+function brillance_Callback(hObject, eventdata, handles)
+% hObject    handle to brillance (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+a=str2double(get(handles.text_val_brillance,'string'));
+%S=int(a);
+if isempty (a) || isnan(a)
+	fig = openfig('erreur_msg.fig','new');         
+         handles = guihandles(fig);
+         guidata(fig, handles);
+	return
+else
+
+
+img=handles.ima_original;
+
+img_contrast=img+a;
+axes(handles.Traitee)
+imshow (img_contrast);
+end
+
+
+
+function text_val_seuil_Callback(hObject, eventdata, handles)
+% hObject    handle to text_val_seuil (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of text_val_seuil as text
+%        str2double(get(hObject,'String')) returns contents of text_val_seuil as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function text_val_seuil_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text_val_seuil (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function text_val_brillance_Callback(hObject, eventdata, handles)
+% hObject    handle to text_val_brillance (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of text_val_brillance as text
+%        str2double(get(hObject,'String')) returns contents of text_val_brillance as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function text_val_brillance_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text_val_brillance (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function text_contrast_manuel_Callback(hObject, eventdata, handles)
+% hObject    handle to text_contrast_manuel (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of text_contrast_manuel as text
+%        str2double(get(hObject,'String')) returns contents of text_contrast_manuel as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function text_contrast_manuel_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to text_contrast_manuel (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in Automatique.
+function Automatique_Callback(hObject, eventdata, handles)
+% hObject    handle to Automatique (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+img=handles.ima_original;
+ amin = min(min(img));
+
+ amax = max(max(img));
+
+ facteur = 0 + (img - amin).*((255 - 0 )/(amax - amin));
+axes(handles.Traitee)
+ imshow(uint8(facteur))
+  
+
+         
+
+% --- Executes on button press in cor_gamma.
+function cor_gamma_Callback(hObject, eventdata, handles)
+% hObject    handle to cor_gamma (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function Fichier_Callback(hObject, eventdata, handles)
+% hObject    handle to Fichier (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function code_source_Callback(hObject, eventdata, handles)
+% hObject    handle to code_source (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+open('espace_traitement.m');
+
+% --------------------------------------------------------------------
+function aide_Callback(hObject, eventdata, handles)
+% hObject    handle to aide (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function Ouvrir_menu_Callback(hObject, eventdata, handles)
+% hObject    handle to Ouvrir_menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[file,path] = uigetfile('*.*');
+%Chargement de l'image et affichage
+handles.ima = imread(sprintf('%s',path,file));
+%Affichage de l'aperçu
+axes(handles.Traitee)
+handles.courant_traite = handles.ima;
+imshow(handles.courant_traite);
+axes(handles.original)
+handles.ima_original = handles.ima;
+imshow(handles.ima_original);
+
+%Grrrrrrrr
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% --------------------------------------------------------------------
+function Enregistrer_Callback(hObject, eventdata, handles)
+% hObject    handle to Enregistrer (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+image = getimage(handles.Traitee);
+[file,path] = uiputfile('*.png','Enregistrer Votre Image ...');
+imwrite(image, sprintf('%s',path,file),'png');
+
+% --------------------------------------------------------------------
+function Quitter_Callback(hObject, eventdata, handles)
+% hObject    handle to Quitter (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+answer = questdlg('Voulez vous fermer cette application ?', ...
+        'Exit Dialog','Oui','Non','Non'); 
+if strcmp(answer,'Oui')
+   quit;
+end
+
+% --- Executes during object creation, after setting all properties.
+function Traitee_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Traitee (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: place code in OpeningFcn to populate Traitee
+
+
+% --- Executes during object creation, after setting all properties.
+function original_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to original (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: place code in OpeningFcn to populate original
+
+
+% --- Executes on button press in binarisation_automatique.
+function binarisation_automatique_Callback(hObject, eventdata, handles)
+% hObject    handle to binarisation_automatique (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+Im=handles.ima_original;
+seuil=graythresh(Im);%calcule seuil
+%ici on peux choisir le seuil entre ]0:1[ par exemple seuil=0.3
+  bin = im2bw(Im,seuil);
+axes(handles.Traitee)
+  imshow(bin);
+
+
+% --- Executes on button press in Contrast_boutton.
+function Contrast_boutton_Callback(hObject, eventdata, handles)
+% hObject    handle to Contrast_boutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+a=str2double(get(handles.text_contrast_manuel,'string'));
+%S=int(a);
+if isempty (a) || isnan(a)
+	fig = openfig('erreur_msg.fig','new');         
+         handles = guihandles(fig);
+         guidata(fig, handles);
+	return
+else
+
+
+img=handles.ima_original;
+
+img_contrast=img*a;
+axes(handles.Traitee)
+imshow (img_contrast);
+end
+
+
+% --- Executes on button press in gaussien.
+function gaussien_Callback(hObject, eventdata, handles)
+% hObject    handle to gaussien (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+I = handles.ima_original;
+%# Creer  le filtre gaussian  [5 5] et sigma = 2
+G = fspecial('gaussian',[5 5],1);
+% filtrer
+Ig = imfilter(I,G,'same');
+
+axes(handles.Traitee)
+imshow (Ig);
+
+
+% --- Executes on button press in histogramme.
+function histogramme_Callback(hObject, eventdata, handles)
+% hObject    handle to histogramme (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+a = handles.ima_original;
+ hr = imhist(a(:,:,1)) ;
+ hv = imhist(a(:,:,2)) ;
+ hb = imhist(a(:,:,3)) ;
+ axes(handles.Traitee)
+ plot([hr hv hb])
+
+
